@@ -1,10 +1,10 @@
+import Navbar from "#components/Navbar";
+
 const App = () => {
   return (
-    <div className="">
-      <h1 className="text-3xl font-bold underline">
-        welcome to my macos portfolio
-      </h1>
-    </div>
+    <main className="">
+      <Navbar />
+    </main>
   );
 };
 
