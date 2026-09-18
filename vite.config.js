@@ -6,6 +6,9 @@ import { fileURLToPath } from "url";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  optimizeDeps: {
+    include: ["pdfjs-dist"],
+  },
   resolve: {
     alias: {
       "#components": resolve(
