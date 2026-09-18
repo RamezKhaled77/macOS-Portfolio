@@ -15,7 +15,7 @@ const Safari = () => {
   return (
     <>
       <div id="window-header">
-        <WindowControls />
+        <WindowControls target="safari" />
 
         <PanelLeft className="ml-10 icon" />
 
