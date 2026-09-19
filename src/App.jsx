@@ -11,13 +11,26 @@ import {
 } from "#windows";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
+import { useEffect, useState } from "react";
 
 gsap.registerPlugin(Draggable);
 
 const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem("portfolio-theme") === "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDarkMode);
+    localStorage.setItem("portfolio-theme", isDarkMode ? "dark" : "light");
+  }, [isDarkMode]);
+
   return (
     <main className="">
-      <Navbar />
+      <Navbar
+        isDarkMode={isDarkMode}
+        onToggleTheme={() => setIsDarkMode((current) => !current)}
+      />
       <Welcome />
       <Dock />
 
