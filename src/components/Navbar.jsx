@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import { navIcons, navLinks } from "#constants";
 import useWindowStore from "#store/window";
 
-const Navbar = () => {
+const Navbar = ({ isDarkMode, onToggleTheme }) => {
   const { openWindow } = useWindowStore();
 
   return (
@@ -27,7 +27,21 @@ const Navbar = () => {
         <ul>
           {navIcons.map(({ id, img }) => (
             <li key={id}>
-              <img src={img} alt={`icon-${id}`} className="icon-hover" />
+              {id === 4 ? (
+                <button
+                  type="button"
+                  className="theme-toggle"
+                  aria-label={
+                    isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+                  }
+                  aria-pressed={isDarkMode}
+                  onClick={onToggleTheme}
+                >
+                  <img src={img} alt="" className="icon-hover" />
+                </button>
+              ) : (
+                <img src={img} alt={`icon-${id}`} className="icon-hover" />
+              )}
             </li>
           ))}
         </ul>

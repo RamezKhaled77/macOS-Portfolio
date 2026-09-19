@@ -13,6 +13,11 @@ body {
   background-position: center;
 }
 
+html.dark,
+html.dark body {
+  background-image: url("/images/bg-dark1.jpg");
+}
+
 @theme {
   --font-georama: "Georama", sans-serif;
   --font-roboto: "Roboto Mono", monospace;
@@ -67,7 +72,7 @@ body {
   }
 
   #welcome {
-    @apply text-gray-100 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
+    @apply text-gray-800 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
 
     .small-screen {
       @apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;
@@ -388,9 +393,160 @@ body {
         }
 
         p {
-          @apply text-sm text-white text-center px-1 rounded-md group-hover:bg-blue-500 transition-colors max-w-40;
+          @apply text-sm font-medium text-gray-900 text-center px-1 rounded-md group-hover:bg-blue-500 transition-colors max-w-40;
         }
       }
     }
+  }
+}
+
+html.dark {
+  color-scheme: dark;
+
+  #home {
+    p {
+      @apply text-gray-100;
+    }
+  }
+
+  #welcome {
+    @apply text-gray-200;
+  }
+
+  .icon {
+    @apply hover:bg-gray-400/30;
+  }
+
+  nav {
+    @apply bg-black/40 text-gray-100;
+
+    time {
+      @apply text-gray-100;
+    }
+
+    .icon-hover,
+    > div:first-child img {
+      filter: invert(1);
+    }
+
+    .theme-toggle {
+      @apply flex items-center justify-center rounded p-1 transition-colors hover:bg-white/15;
+    }
+  }
+
+  #dock .dock-container {
+    @apply bg-black/35;
+  }
+
+  #window-header {
+    @apply bg-gray-800/95 border-gray-700 text-gray-300;
+  }
+
+  #safari,
+  #terminal,
+  #contact,
+  #photos,
+  #resume,
+  #finder,
+  #txtfile,
+  #imgfile {
+    @apply bg-gray-900/95 text-gray-100;
+  }
+
+  .bg-white {
+    @apply bg-gray-900/95;
+  }
+
+  .bg-gray-50 {
+    @apply bg-gray-800/95;
+  }
+
+  .bg-gray-100 {
+    @apply bg-gray-800;
+  }
+
+  .border-gray-200 {
+    @apply border-gray-700;
+  }
+
+  .text-black {
+    @apply text-gray-100;
+  }
+
+  .text-gray-800 {
+    @apply text-gray-100;
+  }
+
+  .text-gray-700 {
+    @apply text-gray-300;
+  }
+
+  .text-gray-500 {
+    @apply text-gray-400;
+  }
+
+  .text-gray-400 {
+    @apply text-gray-400;
+  }
+
+  #safari .search {
+    @apply bg-gray-800 border-gray-600;
+
+    input {
+      @apply text-gray-100 placeholder:text-gray-400;
+    }
+  }
+
+  #safari .blog {
+    @apply bg-gray-900/95 text-gray-100;
+  }
+
+  #safari .blog h2 {
+    @apply text-pink-400;
+  }
+
+  #safari .blog .content p {
+    @apply text-gray-400;
+  }
+
+  #safari .blog .content h3 {
+    @apply text-gray-100;
+  }
+
+  #safari .blog a {
+    @apply text-blue-400;
+  }
+
+  #finder .sidebar .active,
+  #photos .sidebar ul li:first-child {
+    @apply bg-blue-900/70 text-blue-200;
+  }
+
+  #finder .sidebar .not-active {
+    @apply text-gray-300 hover:bg-gray-700;
+  }
+
+  #finder .sidebar {
+    background-color: rgb(31 41 55 / 0.95);
+    border-color: rgb(55 65 81);
+  }
+
+  #photos .sidebar {
+    background-color: rgb(31 41 55 / 0.95);
+    border-color: rgb(55 65 81);
+    color: rgb(229 231 235);
+  }
+
+  #photos .sidebar h2,
+  #photos .sidebar p {
+    color: rgb(209 213 219);
+  }
+
+  #finder .content {
+    background-color: rgb(17 24 39 / 0.95);
+  }
+
+  #imgfile .preview {
+    @apply bg-gray-800;
   }
 }
